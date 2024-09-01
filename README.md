@@ -1,4 +1,4 @@
-# linux-security-scan
+# zinc: automated security audits for Linux servers and desktops
 
 ### Project Idea: Custom Linux Security Scanner
 
