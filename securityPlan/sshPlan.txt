@@ -1,0 +1,107 @@
+SSH Security Audit Checklist
+===========================
+
+1. SSH Service & Installation Checks
+   □ Verify SSH server installation
+   □ Check SSH service status (systemctl)
+   □ Verify SSH daemon process (sshd)
+   □ Check SSH version
+
+2. SSH Configuration Security
+   □ Check PermitRootLogin setting
+   □ Verify PasswordAuthentication setting
+   □ Ensure Protocol is set to 2
+   □ Check for non-standard SSH port
+   □ Verify sshd_config file exists and location
+
+3. SSH Key Management
+   □ Verify SSH key permissions:
+     - Private keys (600)
+     - Public keys (644)
+     - authorized_keys file (600)
+   □ Validate key types and strengths:
+     - RSA keys >= 3072 bits
+     - ED25519 keys presence
+   □ Check host keys:
+     - Presence of host keys
+     - Count of available host keys
+     - Key fingerprints and types
+
+4. Access Control & Authentication
+   □ Review AllowUsers/DenyUsers settings
+   □ Check MaxAuthTries setting (recommend 3-4)
+   □ Monitor failed login attempts:
+     - Count in auth.log
+     - Failed attempts by IP (top 10)
+     - Concurrent login attempts
+   □ Check recent SSH connections (last command)
+
+5. File & Directory Permissions
+   □ SSH directory (/etc/ssh) permissions (755)
+   □ User's ~/.ssh directory permissions (700)
+   □ SSH host keys permissions (600)
+   □ Verify file ownership:
+     - SSH directory (root:root)
+     - Config files (root:root)
+     - User SSH directory (user:user)
+
+6. Network Security
+   □ Check SSH listening ports:
+     - Using netstat
+     - Using ss (socket statistics)
+   □ Verify firewall rules:
+     - UFW rules for SSH
+     - IPTables rules for SSH
+   □ Check brute-force protection:
+     - Fail2ban installation
+     - Fail2ban SSH jail status
+
+7. Crypto Settings
+   □ Review enabled ciphers
+   □ Check key exchange algorithms:
+     - List available algorithms
+     - Identify weak algorithms (sha1, diffie-hellman-group1)
+   □ Verify MAC algorithms:
+     - List available algorithms
+     - Identify weak algorithms (md5, sha1)
+
+8. Logging & Monitoring
+   □ Check SSH logging configuration:
+     - LogLevel setting
+     - Log file presence
+   □ Analyze login patterns:
+     - Login attempts by hour
+     - Failed login attempts
+     - Concurrent login attempts
+   □ Monitor authentication:
+     - Failed password attempts
+     - Authentication failures by IP
+     - Unusual login patterns
+
+9. Additional Security Checks
+   □ Process Status:
+     - SSH daemon running status
+     - Process details and ownership
+   □ Service Management:
+     - Systemd service status
+     - Service startup configuration
+   □ Port Status:
+     - Port availability
+     - Port listening status
+
+10. Security Recommendations
+    □ Generate critical security recommendations
+    □ Prioritize recommendations by severity:
+      - Critical (A level)
+      - High (B level)
+      - Medium (C level)
+      - Low (D level)
+    □ Provide specific remediation steps
+
+11. Audit Logging
+    □ Log all check results
+    □ Include timestamp for each check
+    □ Record warning and error messages
+    □ Save full audit report
+
+Note: This checklist represents the comprehensive security checks performed by the SSH security audit script. Regular audits using these checks help maintain a secure SSH environment. 
