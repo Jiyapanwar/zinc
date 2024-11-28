@@ -1,0 +1,54 @@
+Log File Analysis Audit Checklist
+==========================================
+
+1. Log File Validation
+
+□ Verify presence of the /var/log/auth.log file
+□ Check file ownership and permissions:
+- Ownership: root:root
+- Permissions: 640 or stricter
+
+2. Failed Login Attempt Analysis
+
+□ Extract failed login attempts from logs
+□ Count total failed login attempts
+□ Identify top offending IPs by failed attempts
+□ Block brute-force IPs (threshold > 5 attempts)
+
+3. Root Login Verification
+
+□ Extract and list successful root logins
+□ Validate if root login is disabled in SSH config
+□ Review root login patterns for anomalies
+
+4. Invalid User Attempts
+
+□ Extract invalid user login attempts
+□ Count and analyze patterns of invalid attempts
+□ Monitor unusual or frequent invalid logins
+
+5. Tripwire Integrity Check
+
+□ Verify Tripwire installation and initialization
+□ Run a Tripwire integrity check
+□ Log changes or warnings detected by Tripwire
+
+6. Sudo User Audit
+
+□ List all users with sudo privileges
+□ Validate unauthorized sudo access attempts
+□ Review recent sudo commands for anomalies
+
+7. Recommendations for Security
+
+□ Enforce stricter authentication policies
+□ Enable automated blocking for brute-force attempts (Fail2Ban)
+□ Monitor logs daily for suspicious activity
+□ Archive old logs securely to free up space
+
+8. Audit Logging
+
+□ Log all findings from log analysis
+□ Include timestamp for each event
+□ Record IPs blocked due to brute-force attempts
+□ Save detailed log analysis report

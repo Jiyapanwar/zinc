@@ -1,0 +1,43 @@
+Open Ports Check Audit Checklist
+==========================================
+
+1. Port Scanning and Detection
+
+□ Verify Nmap installation
+□ Perform a full TCP port scan
+□ Identify open ports
+□ List services running on open ports
+
+2. Service Verification
+
+□ Check services bound to critical ports (e.g., 22, 80, 443)
+□ Verify unexpected services on non-standard ports
+□ Validate active services with ss or netstat
+
+3. Firewall and IPTables Rules
+
+□ Check if UFW is installed and active
+□ Review current UFW rules for allowed/denied ports
+□ List IPTables rules for open ports
+□ Confirm SSH and HTTP/S ports are explicitly allowed
+
+4. Security Assessment
+
+□ Highlight ports exposing unnecessary services
+□ Detect services with default configurations
+□ Assess weak or insecure services (e.g., Telnet, FTP)
+□ Verify if critical ports are protected with firewalls
+
+5. Recommendations for Security
+
+□ Disable unnecessary services on open ports
+□ Change non-standard port numbers for critical services
+□ Enforce firewall rules for unused ports
+□ Regularly monitor new open ports and services
+
+6. Audit Logging
+
+□ Log all open ports and their associated services
+□ Include timestamp for scan execution
+□ Record warning messages for insecure configurations
+□ Save full port scan report

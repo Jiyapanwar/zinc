@@ -1,0 +1,132 @@
+Firewall & IPTables Security Audit Checklist
+===========================================
+
+1. Firewall Service Status Checks
+   □ Verify UFW/IPTables installation status
+   □ Check firewall service status (systemctl)
+   □ Verify if firewall is enabled at boot
+   □ Confirm default policies:
+     - INPUT chain policy
+     - OUTPUT chain policy
+     - FORWARD chain policy
+   □ Check nftables status and configuration
+   □ Verify service startup configuration
+
+2. Rule Configuration Audit
+   □ Review active firewall rules:
+     - List all UFW rules
+     - List all IPTables rules
+     - Document custom chains
+   □ Verify critical port status:
+     - SSH (22)
+     - HTTP (80)
+     - HTTPS (443)
+     - Database ports
+   □ Check for:
+     - Conflicting rules
+     - Redundant rules
+     - Rules order efficiency
+   □ Analyze rule conflicts:
+      - ALLOW/DENY conflicts
+      - Duplicate rules detection
+      - Port-specific conflicts
+
+3. Network Security Policy Verification
+   □ Validate incoming traffic rules:
+     - Blocked ports inventory
+     - Allowed services list
+     - Rate limiting rules
+   □ Check outgoing traffic rules:
+     - Restricted outbound connections
+     - Allowed outbound services
+     - Default outbound policy
+   □ Verify NAT configuration:
+     - SNAT rules
+     - DNAT rules
+     - Port forwarding setup
+   □ Connection tracking:
+      - Maximum connections
+      - Current connection count
+      - Connection state rules
+
+4. Logging & Monitoring Configuration
+   □ Verify logging settings:
+     - Dropped packets logging
+     - Accepted connections logging
+     - Log file location and permissions
+   □ Check rate limiting:
+     - Connection tracking status
+     - Concurrent connection limits
+     - Per-IP connection limits
+   □ Monitor suspicious activity:
+     - Failed connection attempts
+     - Port scan attempts
+     - DDoS indicators
+   □ Periodic monitoring:
+      - Automated checks every 15 minutes
+      - Change detection
+      - Email alerts for significant changes
+
+5. Security Best Practices Validation
+   □ Verify anti-spoofing rules:
+     - Reverse path filtering
+     - Invalid packet dropping
+     - Source routing protection
+   □ Check state tracking:
+     - ESTABLISHED,RELATED rules
+     - Invalid state drops
+     - State table size limits
+   □ Validate security measures:
+     - SYN flood protection
+     - ICMP handling rules
+     - Fragment handling rules
+
+6. Backup and Recovery
+   □ Automated backup functionality:
+      - UFW rules backup
+      - IPTables rules backup
+      - nftables rules backup
+   □ Backup management:
+      - Timestamped backups
+      - Secure backup storage
+      - Backup rotation
+   □ Restore capabilities:
+      - Selective rule restoration
+      - Backup verification
+      - Rollback options
+
+7. Security Analysis and Reporting
+   □ Threat level assessment:
+      - Critical (A level) risks
+      - High (B level) risks
+      - Medium (C level) risks
+      - Low (D level) risks
+   □ Compliance checking:
+      - Security requirements
+      - Rule validation
+      - Configuration assessment
+   □ Recommendations:
+      - Critical security fixes
+      - Configuration improvements
+      - Best practice alignment
+
+Note: This checklist focuses on the critical aspects of firewall security for Debian-based systems. Regular audits using these checks help maintain a robust firewall configuration and network security posture.
+
+Recommended Audit Frequency:
+- Daily: Service status checks
+- Weekly: Rule configuration audit
+- Monthly: Complete security audit
+- Quarterly: Policy review and updates
+
+Management Interface:
+- Interactive menu system
+- On-demand security audits
+- Backup and restore operations
+- Rule conflict analysis
+- Monitoring setup
+
+Monitoring and Alerting:
+- Real-time status monitoring
+- Change detection and alerts
+- Connection tracking
+- Suspicious activity detection

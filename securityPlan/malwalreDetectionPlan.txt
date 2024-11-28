@@ -1,0 +1,40 @@
+Malware and Rootkit Detection 
+Command Availability Validation
+□ Verify that chkrootkit is installed and accessible.
+□ Verify that rkhunter is installed and accessible.
+
+chkrootkit Execution
+□ Run chkrootkit to scan for potential rootkits.
+□ Log the output, highlighting infections or suspicious findings.
+□ Ensure the message "not infected" confirms a clean system.
+
+rkhunter Execution
+□ Update rkhunter database using rkhunter --update.
+□ Execute rkhunter --check --skip-keypress to perform a comprehensive check.
+□ Log warnings, anomalies, or flagged issues from the output.
+
+Results Summary
+□ Summarize results from chkrootkit:
+
+Confirm if the system is clean or highlight potential rootkits detected.
+□ Summarize results from rkhunter:
+Note "No warnings found" for clean results or list detected warnings.
+□ Highlight specific suspicious entries using keywords (e.g., "Warning," "Possible").
+Recommendations for Action
+□ Investigate flagged warnings or detected rootkits immediately.
+□ Re-scan after resolving any issues to confirm a clean system.
+□ Schedule periodic checks using both tools.
+
+Audit Logging
+□ Record all outputs from chkrootkit and rkhunter with timestamps.
+□ Maintain detailed logs of findings for future reference or compliance needs.
+□ Archive summary reports securely for historical analysis.
+
+User Notification
+□ Notify administrators of critical findings and actions required.
+□ Provide clear instructions for addressing detected issues.
+
+Script Maintenance
+□ Regularly verify and update the script for compatibility with new tool versions.
+□ Ensure color-coded messages are visible on all supported terminals.
+□ Review the script to avoid false positives or missed detections.
